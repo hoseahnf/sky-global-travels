@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Plane, Menu, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -11,7 +11,13 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-primary text-primary-foreground">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
         <Link href="/" className="flex items-center gap-2">
-          <Plane className="h-6 w-6 text-secondary" />
+          <span className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-primary-foreground/95">
+            <img
+              src="/sky-global-travels-logo.png"
+              alt="Sky Global Travels logo"
+              className="h-9 w-9 object-contain mix-blend-multiply"
+            />
+          </span>
           <span className="text-lg font-bold tracking-tight">Sky Global Travels</span>
         </Link>
 
