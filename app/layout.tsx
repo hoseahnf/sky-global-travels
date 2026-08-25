@@ -10,25 +10,10 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'Sky Global Travels | Luxury Holiday Deals',
-  description:
-    'Sky Global Travels - Cheap Flights, Holiday Packages & Umrah Deals from the UK.',
+  title: 'Sky Global Travels',
+  description: 'Luxury Holiday Deals',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/icon.png',
   },
 }
 
