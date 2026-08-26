@@ -18,44 +18,7 @@ const clients = [
   ["Hassan Ali", "Dewsbury"], ["Chiamaka Obi", "Reading"], ["Nusrat Jahan", "Oldham"], ["Kofi Mensah", "Sheffield"],
 ] as const
 const agents = ["Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Scott Brown", "Alex Taylor", "Joe Miller", "Daniel Cooper", "Sophie Jenkins", "Liam Gallagher", "Emma Watson", "Oliver Davies", "Chloe Evans"]
-const avatarUrls = [
-  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1521119989659-a83eee488004?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1531384441138-2736e62e0919?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1542206395-9feb3edaa68d?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?auto=format&fit=crop&w=320&h=320&q=90",
-  "https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?auto=format&fit=crop&w=320&h=320&q=90",
-]
+
 const tripTypes = ["our first family escape", "a quiet honeymoon", "a solo reset", "a birthday break", "a friends’ getaway", "a long-awaited anniversary", "a half-term holiday", "a surprise weekend", "a multigenerational trip", "a relaxing couples’ break", "our first trip abroad together"]
 const experiences = [
   "Ryan Smith found a fare that was genuinely cheaper than anything I could find online and made the whole booking effortless.",
@@ -90,7 +53,6 @@ const reviews = Array.from({ length: 352 }, (_, index) => {
     agent,
     destination,
     rating,
-    avatar: avatarUrls[index % avatarUrls.length],
     quote: `${experience} Our ${trip} in ${destination} was comfortable, memorable and excellent value.`,
   }
 })
@@ -121,7 +83,7 @@ export function TestimonialsSection() {
             <Quote aria-hidden="true" className="mt-8 size-8 text-secondary/70" />
             <blockquote className="mt-3 max-w-3xl text-xl leading-8 text-primary-foreground/90 sm:text-2xl">“{review.quote}”</blockquote>
             <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-primary-foreground/10 pt-5">
-              <div className="flex items-center gap-3"><img src={review.avatar} alt={`${review.name} profile photo`} width={44} height={44} loading="lazy" className="size-11 rounded-full object-cover ring-2 ring-secondary/30" /><div><p className="font-bold">{review.name}</p><p className="mt-1 text-sm text-primary-foreground/50">Verified traveller · {review.city} · {review.agent} assisted</p></div></div>
+              <div><p className="font-bold">{review.name}</p><p className="mt-1 text-sm text-primary-foreground/50">Verified traveller · {review.city} · {review.agent} assisted</p></div>
               <p className="text-sm font-semibold text-secondary">{review.rating.toFixed(1)} / 5</p>
             </div>
           </div>
