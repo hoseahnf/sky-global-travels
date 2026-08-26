@@ -1,17 +1,13 @@
 
 
+import { Plane } from "lucide-react"
+
 export function Footer() {
   return (
     <footer className="border-t border-primary-foreground/10 bg-[oklch(0.15_0.04_250)] py-8 text-center">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-3 px-6">
         <div className="flex items-center gap-2 text-primary-foreground">
-          <span className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-primary-foreground/95">
-            <img
-              src="/sky-global-travels-logo.png"
-              alt="Sky Global Travels logo"
-              className="h-9 w-9 object-contain mix-blend-multiply"
-            />
-          </span>
+          <Plane aria-hidden="true" className="size-5 text-secondary" />
           <span className="text-sm font-semibold">Sky Global Travels</span>
         </div>
         <p className="text-sm font-bold text-secondary">

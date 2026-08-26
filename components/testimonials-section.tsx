@@ -6,28 +6,26 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 
 const destinations = ["Antalya", "Agadir", "Cairo", "Istanbul", "Marrakech", "Sharm El Sheikh", "Hurghada", "Tunisia", "Montenegro", "Bali", "Thailand", "Canary Islands"]
-const names = [
-  ["Amelia Thompson", "London"], ["Daniel Hughes", "Manchester"], ["Sophie Williams", "Birmingham"],
-  ["Oliver Bennett", "Edinburgh"], ["Charlotte Evans", "Leeds"], ["George Wilson", "Bristol"],
-  ["Isla Roberts", "Glasgow"], ["Harry Cooper", "Liverpool"], ["Emily Richardson", "Nottingham"],
-  ["Jack Mitchell", "Cardiff"], ["Grace Carter", "Sheffield"], ["Thomas Murphy", "Newcastle"],
-  ["Ruby Hamilton", "London"], ["William Graham", "Manchester"], ["Daisy Graham", "Birmingham"],
-  ["Theo Robertson", "Edinburgh"], ["Poppy Bailey", "Leicester"], ["Charlie Phillips", "Brighton"],
-]
-const quotes = [
-  "The booking was wonderfully seamless from start to finish. Our hotel felt genuinely luxurious, and every detail was handled beautifully.",
-  "Sky Global Travels found us a gorgeous beachfront stay and made the whole process feel effortless. Brilliant service.",
-  "From the first call to our return home, the team were attentive and knowledgeable. Our hotel was superb.",
-  "Fast replies, clear advice and a stunning hotel. We will definitely book through Sky Global Travels again.",
-  "The whole holiday felt polished and personal. We felt like valued clients from the very first conversation.",
-  "Beautiful accommodation, smooth transfers and kind support. The trip felt effortless and genuinely luxurious.",
+const travelers: [string, string, string, string, number, string][] = [
+  ["Amelia Thompson", "London", "Ryan Smith", "Antalya", 5, "Our airport transfer was delayed, but Ryan Smith kept us updated and arranged a replacement before we even had to ask. We didn't feel left alone, and the luxury hotel was unbeatable value. Highly recommend Sky Global Travels!"],
+  ["Daniel Hughes", "Manchester", "Scott Brown", "Agadir", 4.5, "A room issue on arrival could have ruined our break, but Scott Brown worked with the hotel until it was sorted. He helped me a lot and support was available every single time. Very cheap for such a lovely stay. Highly recommend Sky Global Travels!"],
+  ["Sophie Williams", "Birmingham", "Alex Taylor", "Cairo", 5, "Our flight time changed unexpectedly and Alex Taylor found a practical solution straight away. She made sure we didn't feel left alone, with brilliant service and a luxury hotel at a genuinely competitive price. Highly recommend Sky Global Travels!"],
+  ["Oliver Bennett", "Edinburgh", "Joe Miller", "Istanbul", 4, "We were worried after our luggage was delayed, but Joe Miller chased the airline and checked in every day. He helped me a lot and never left us without an answer. Excellent value. Highly recommend Sky Global Travels!"],
+  ["Charlotte Evans", "Leeds", "Daniel Cooper", "Marrakech", 5, "Daniel Cooper rescued our airport pickup when the supplier missed us. He was available every single time, so we didn't feel left alone. The riad was luxurious and the price was incredibly cheap. Highly recommend Sky Global Travels!"],
+  ["George Wilson", "Bristol", "Sophie Jenkins", "Sharm El Sheikh", 4.5, "A booking detail was entered incorrectly, but Sophie Jenkins fixed it quickly and kept us informed throughout. She helped me a lot and delivered far beyond expectations. Superb value. Highly recommend Sky Global Travels!"],
+  ["Isla Roberts", "Glasgow", "Liam Gallagher", "Hurghada", 5, "When our excursion was cancelled, Liam Gallagher arranged a better alternative and stayed on top of every detail. We didn't feel left alone for a moment. Luxury travel for a very competitive price. Highly recommend Sky Global Travels!"],
+  ["Harry Cooper", "Liverpool", "Emma Watson", "Tunisia", 4, "Our family needed a last-minute dietary request added to the booking, and Emma Watson made it happen. She helped me a lot and the support was there every time I called. Brilliant value. Highly recommend Sky Global Travels!"],
+  ["Emily Richardson", "Nottingham", "Oliver Davies", "Montenegro", 5, "A ferry timetable changed before our trip, but Oliver Davies reorganised our transfers without fuss. He made sure we didn't feel left alone, and our hotel was beautiful. Highly recommend Sky Global Travels!"],
+  ["Jack Mitchell", "Cardiff", "Chloe Evans", "Bali", 4.5, "We had a payment query late in the evening and Chloe Evans explained everything clearly and calmly. She helped me a lot, with customer service that felt genuinely personal and a fantastic price. Highly recommend Sky Global Travels!"],
+  ["Grace Carter", "Sheffield", "Harry Wilson", "Thailand", 5, "Our connecting flight was disrupted, but Harry Wilson found new options and kept checking until we landed. We never felt left alone. The luxury resort was incredible value. Highly recommend Sky Global Travels!"],
+  ["Thomas Murphy", "Newcastle", "Grace Thomas", "Canary Islands", 4, "The hotel initially couldn't find our reservation, but Grace Thomas sorted it directly and called back to make sure we were settled. She helped me a lot and the price was hard to beat. Highly recommend Sky Global Travels!"],
+  ["Ruby Hamilton", "London", "Jack Roberts", "Antalya", 5, "Our return transfer was missing from the paperwork, yet Jack Roberts arranged it immediately and stayed available every single time. Seamless support, luxury stay and unbeatable value. Highly recommend Sky Global Travels!"],
+  ["William Graham", "Manchester", "Megan Hughes", "Agadir", 4.5, "We needed to change dates after a family emergency and Megan Hughes handled it with real kindness. She helped me a lot and made sure we didn't feel left alone. Very competitive pricing and excellent service. Highly recommend Sky Global Travels!"],
 ]
 
 const reviews = Array.from({ length: 300 }, (_, index) => {
-  const [name, city] = names[index % names.length]
-  const destination = destinations[index % destinations.length]
-  const rating = index % 11 === 0 ? 4 : index % 7 === 0 ? 4.5 : 5
-  return { id: index + 1, name, city, destination, rating, quote: quotes[index % quotes.length] }
+  const [name, city, agent, destination, rating, quote] = travelers[index % travelers.length]
+  return { id: index + 1, name, city, agent, destination, rating, quote }
 })
 
 function Stars({ rating }: { rating: number }) {
