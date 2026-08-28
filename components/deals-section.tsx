@@ -58,10 +58,10 @@ const holidayDeals = [
     whatsappText: "Hello, I am interested in Istanbul package.",
   },
   {
-    image: "https://images.pexels.com/photos/2044434/pexels-photo-2044434.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/dubai-skyline.png",
     title: "Dubai, UAE",
     description: "World-class shopping & desert adventures.",
-    price: "From £599",
+    price: "From £530pp",
     whatsappText: "Hello, I am interested in Dubai luxury escape.",
   },
   {
