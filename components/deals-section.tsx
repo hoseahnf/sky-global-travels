@@ -51,11 +51,18 @@ const holidayDeals = [
     whatsappText: "Hello, I am interested in Agadir package.",
   },
   {
-    image: "https://images.pexels.com/photos/1797161/pexels-photo-1797161.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "https://images.pexels.com/photos/2166559/pexels-photo-2166559.jpeg?auto=compress&cs=tinysrgb&w=800",
     title: "Istanbul, Turkey",
     description: "Historic mosques & Bosphorus views.",
     price: "From £299",
     whatsappText: "Hello, I am interested in Istanbul package.",
+  },
+  {
+    image: "https://images.pexels.com/photos/2044434/pexels-photo-2044434.jpeg?auto=compress&cs=tinysrgb&w=800",
+    title: "Dubai, UAE",
+    description: "World-class shopping & desert adventures.",
+    price: "From £599",
+    whatsappText: "Hello, I am interested in Dubai luxury escape.",
   },
   {
     image: "https://images.pexels.com/photos/3732494/pexels-photo-3732494.jpeg?auto=compress&cs=tinysrgb&w=800",
