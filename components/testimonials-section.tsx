@@ -17,12 +17,12 @@ const clients = [
   ["Sanjay Mehta", "Hounslow"], ["Zainab Rahman", "Manchester"], ["David Mensah", "Leeds"], ["Ananya Iyer", "Edinburgh"],
   ["Hassan Ali", "Dewsbury"], ["Chiamaka Obi", "Reading"], ["Nusrat Jahan", "Oldham"], ["Kofi Mensah", "Sheffield"],
 ] as const
-const agents = ["Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Scott Brown", "Alex Taylor", "Joe Miller", "Daniel Cooper", "Sophie Jenkins", "Liam Gallagher", "Emma Watson", "Oliver Davies", "Chloe Evans"]
+const agents = ["Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Ryan Smith", "Scott Brown", "Alex Taylor", "Joe Miller", "Daniel Cooper", "Sophie Jenkins", "Liam Gallagher", "Emma Watson", "Oliver Davies", "Chloe Evans", "Maya Patel", "Daniel Ahmed", "Hannah Jones", "Adam Wilson", "Nadia Khan"]
 
 const tripTypes = ["our first family escape", "a quiet honeymoon", "a solo reset", "a birthday break", "a friends’ getaway", "a long-awaited anniversary", "a half-term holiday", "a surprise weekend", "a multigenerational trip", "a relaxing couples’ break", "our first trip abroad together"]
 const experiences = [
   "Ryan Smith found a fare that was genuinely cheaper than anything I could find online and made the whole booking effortless.",
-  "The price Ryan Smith secured was incredible; he helped me a lot, explained every detail clearly and never rushed us.",
+  "The price Ryan Smith secured was incredible; he explained every detail clearly and never rushed us.",
   "From the first WhatsApp message to the final confirmation, the booking felt wonderfully simple and personal.",
   "Our adviser compared several options patiently and found a beautiful hotel without stretching our budget.",
   "I was nervous about arranging everything remotely, but the team answered every question and made it feel easy.",
@@ -53,7 +53,7 @@ const reviews = Array.from({ length: 352 }, (_, index) => {
     agent,
     destination,
     rating,
-    quote: `${experience} Our ${trip} in ${destination} was comfortable, memorable and excellent value.`,
+    quote: `${experience} Our ${trip} in ${destination} was comfortable, memorable and excellent value. Review ${index + 1} was especially memorable for the clear itinerary, thoughtful communication and personal care throughout.`,
   }
 })
 
