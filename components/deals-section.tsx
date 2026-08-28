@@ -51,11 +51,18 @@ const holidayDeals = [
     whatsappText: "Hello, I am interested in Agadir package.",
   },
   {
-    image: "https://images.pexels.com/photos/1797161/pexels-photo-1797161.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "https://images.pexels.com/photos/2166559/pexels-photo-2166559.jpeg?auto=compress&cs=tinysrgb&w=800",
     title: "Istanbul, Turkey",
     description: "Historic mosques & Bosphorus views.",
     price: "From £299",
     whatsappText: "Hello, I am interested in Istanbul package.",
+  },
+  {
+    image: "/dubai-skyline.png",
+    title: "Dubai, UAE",
+    description: "World-class shopping & desert adventures.",
+    price: "From £530pp",
+    whatsappText: "Hello, I am interested in Dubai luxury escape.",
   },
   {
     image: "https://images.pexels.com/photos/3732494/pexels-photo-3732494.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -63,6 +70,14 @@ const holidayDeals = [
     description: "All-inclusive Mediterranean resorts.",
     price: "From £379",
     whatsappText: "Hello, I am interested in Antalya package.",
+  },
+  {
+    image: "/haram-sharif-kaaba.png",
+    title: "Umrah from the UK",
+    description: "Spiritual journeys from the UK with affordable packages, flights and guided support.",
+    price: "From £399pp",
+    badge: "Umrah Special",
+    whatsappText: "Hello, I am interested in the £399pp Umrah from the UK package.",
   },
   {
     image: "https://images.pexels.com/photos/221455/pexels-photo-221455.jpeg?auto=compress&cs=tinysrgb&w=800",

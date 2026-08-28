@@ -1,0 +1,7 @@
+import type { Metadata } from "next"
+import Link from "next/link"
+import { guides } from "@/lib/seo"
+
+export const metadata: Metadata = { title: "Travel Guides & Umrah Advice | Sky Global Travels", description: "Read destination guides, seasonal travel advice and practical Umrah planning tips from Sky Global Travels." }
+
+export default function BlogPage() { return <main className="min-h-screen bg-background"><section className="bg-primary text-primary-foreground"><div className="mx-auto max-w-7xl px-6 py-20 lg:px-10"><p className="text-sm font-semibold uppercase tracking-[0.2em] text-secondary">Travel resources</p><h1 className="mt-4 max-w-3xl text-balance text-4xl font-bold sm:text-6xl">Guides for better journeys</h1><p className="mt-6 max-w-2xl leading-7 text-primary-foreground/75">Practical inspiration for choosing a destination, finding the right season and preparing for Umrah from the UK.</p></div></section><section className="mx-auto max-w-7xl px-6 py-14 lg:px-10"><div className="grid gap-6 md:grid-cols-3">{guides.map((guide) => <article key={guide.slug} className="flex flex-col gap-5 rounded-2xl border border-border bg-card p-7"><p className="text-sm font-semibold uppercase tracking-wider text-secondary-foreground">Guide</p><h2 className="text-2xl font-bold text-primary">{guide.title}</h2><p className="leading-7 text-muted-foreground">{guide.description}</p><Link className="mt-auto font-semibold text-primary underline underline-offset-4" href={`/blog/${guide.slug}`}>Read the guide</Link></article>)}</div></section></main> }

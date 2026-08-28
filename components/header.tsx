@@ -20,6 +20,15 @@ export function Header() {
           <Link href="#deals" className="text-sm font-medium text-primary-foreground/80 transition hover:text-secondary">
             Deals
           </Link>
+          <Link href="/destinations/antalya-holidays" className="text-sm font-medium text-primary-foreground/80 transition hover:text-secondary">
+            Destinations
+          </Link>
+          <Link href="/umrah-packages-from-london" className="text-sm font-medium text-primary-foreground/80 transition hover:text-secondary">
+            Umrah
+          </Link>
+          <Link href="/blog" className="text-sm font-medium text-primary-foreground/80 transition hover:text-secondary">
+            Guides
+          </Link>
           <Link href="#about" className="text-sm font-medium text-primary-foreground/80 transition hover:text-secondary">
             About
           </Link>
