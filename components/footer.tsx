@@ -13,11 +13,7 @@ export function Footer() {
         <p className="text-sm font-bold text-secondary">
           Founder &amp; CEO: Hosea Hanif | SKY GLOBAL TRAVELS LTD
         </p>
-        <nav aria-label="Explore" className="flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-primary-foreground/65">
-          <a href="/destinations/antalya-holidays" className="transition hover:text-secondary">Antalya Holidays</a>
-          <a href="/destinations/hurghada-holiday-packages" className="transition hover:text-secondary">Hurghada Packages</a>
-          <a href="/umrah-packages-from-london" className="transition hover:text-secondary">Umrah from London</a>
-          <a href="/blog" className="transition hover:text-secondary">Travel Guides</a>
+        <nav aria-label="Legal" className="flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-primary-foreground/65">
           <a href="/privacy-policy" className="transition hover:text-secondary">Privacy Policy</a>
           <a href="/terms-of-service" className="transition hover:text-secondary">Terms of Service</a>
         </nav>

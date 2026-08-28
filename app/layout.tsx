@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Poppins } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import { QuickAccessNav } from '@/components/quick-access-nav'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -41,6 +42,7 @@ export default function RootLayout({
     <html lang="en" className={poppins.variable}>
       <body className="font-sans antialiased">
         {children}
+        <QuickAccessNav />
         <Analytics />
       </body>
     </html>
