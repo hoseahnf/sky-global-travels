@@ -65,10 +65,10 @@ const holidayDeals = [
     whatsappText: "Hello, I am interested in Antalya package.",
   },
   {
-    image: "https://images.pexels.com/photos/161853/mecca-kaaba-islam-religion-161853.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/haram-sharif-kaaba.png",
     title: "Umrah from the UK",
     description: "Spiritual journeys from the UK with affordable packages, flights and guided support.",
-    price: "£399pp",
+    price: "From £399pp",
     badge: "Umrah Special",
     whatsappText: "Hello, I am interested in the £399pp Umrah from the UK package.",
   },
