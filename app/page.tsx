@@ -21,7 +21,7 @@ export default function Home() {
             <h2 id="popular-travel-pages" className="mt-3 text-3xl font-bold text-primary">Explore our travel pages and guides</h2>
             <p className="mt-3 leading-7 text-muted-foreground">Find focused advice and package information for the journeys our customers ask about most.</p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
             {[
               ["/umrah-packages-from-london", "Umrah from the UK", "Spiritual journeys and affordable packages from £399pp."],
               ["/destinations/antalya-holidays", "Antalya holidays", "Mediterranean resorts and beach breaks."],
