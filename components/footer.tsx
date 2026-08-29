@@ -1,6 +1,7 @@
 
 
 import { Plane } from "lucide-react"
+import { TrustPanel } from "./trust-panel"
 
 export function Footer() {
   return (
@@ -13,6 +14,7 @@ export function Footer() {
         <p className="text-sm font-bold text-secondary">
           Founder &amp; CEO: Hosea Hanif | SKY GLOBAL TRAVELS LTD
         </p>
+        <TrustPanel compact />
         <nav aria-label="Explore destinations and guides" className="flex max-w-4xl flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-semibold text-primary-foreground/65">
           <a href="/umrah-packages-from-london" className="transition hover:text-secondary">Umrah from the UK</a>
           <a href="/destinations/antalya-holidays" className="transition hover:text-secondary">Antalya Holidays</a>

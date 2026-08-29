@@ -1,4 +1,5 @@
 import { DealCard } from "./deal-card"
+import { TrustPanel } from "./trust-panel"
 const christmasDeals = [
   {
     image: "https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -171,9 +172,10 @@ export function DealsSection({ filter = "" }: DealsSectionProps) {
         {/* Top Holiday Deals */}
         <div className="text-center">
           <h3 className="mb-3 text-3xl font-bold text-primary sm:text-4xl">Top Holiday Deals</h3>
-          <p className="mx-auto mb-12 max-w-xl text-muted-foreground">
+          <p className="mx-auto mb-6 max-w-xl text-muted-foreground">
             Handpicked destinations with the best prices for an unforgettable holiday.
           </p>
+          <div className="mb-10 flex justify-center"><TrustPanel compact /></div>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {visibleDeals.length > 0 ? visibleDeals.map((deal) => (
               <DealCard key={`holiday-${deal.title}`} {...deal} />

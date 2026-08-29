@@ -62,6 +62,7 @@ export function DealCard({
           <p className="text-lg font-bold text-destructive">{price}</p>
           {originalPrice && <span className="text-sm text-muted-foreground line-through">{originalPrice}</span>}
         </div>
+        <p className="mt-2 text-xs font-semibold text-secondary-foreground">Low deposits from £19pp · Flexible payment options</p>
         <a
           href={`https://wa.me/447476605409?text=${encodeURIComponent(whatsappText)}`}
           target="_blank"
