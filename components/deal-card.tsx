@@ -24,7 +24,7 @@ export function DealCard({
   ctaText = "Book Now",
 }: DealCardProps) {
   return (
-    <article className="group overflow-hidden rounded-xl bg-card shadow-sm ring-1 ring-border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+    <article className="reveal-on-scroll group overflow-hidden rounded-xl bg-card shadow-sm ring-1 ring-border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
       <div className="relative h-56 overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -50,7 +50,7 @@ export function DealCard({
           </span>
         )}
         {badge && (
-          <span className="absolute right-3 top-3 rounded-full bg-secondary px-3 py-1 text-xs font-bold text-secondary-foreground shadow-sm">
+          <span className="animate-badge-pulse absolute right-3 top-3 rounded-full bg-secondary px-3 py-1 text-xs font-bold text-secondary-foreground shadow-sm">
             {badge}
           </span>
         )}
