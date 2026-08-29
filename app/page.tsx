@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react"
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { DealsSection } from "@/components/deals-section"
@@ -9,11 +12,13 @@ import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
 
 export default function Home() {
+  const [destinationFilter, setDestinationFilter] = useState("")
+
   return (
     <main>
       <Header />
-      <Hero />
-      <DealsSection />
+      <Hero onSearch={setDestinationFilter} />
+      <DealsSection filter={destinationFilter} />
       <section className="bg-muted py-16" aria-labelledby="popular-travel-pages">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="mb-8 max-w-2xl">

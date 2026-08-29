@@ -137,7 +137,16 @@ const holidayDeals = [
   },
 ]
 
-export function DealsSection() {
+type DealsSectionProps = {
+  filter?: string
+}
+
+export function DealsSection({ filter = "" }: DealsSectionProps) {
+  const normalizedFilter = filter.trim().toLowerCase()
+  const visibleDeals = normalizedFilter
+    ? holidayDeals.filter((deal) => `${deal.title} ${deal.description}`.toLowerCase().includes(normalizedFilter))
+    : holidayDeals
+
   return (
     <section id="deals" className="bg-background py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -166,9 +175,13 @@ export function DealsSection() {
             Handpicked destinations with the best prices for an unforgettable holiday.
           </p>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {holidayDeals.map((deal) => (
+            {visibleDeals.length > 0 ? visibleDeals.map((deal) => (
               <DealCard key={`holiday-${deal.title}`} {...deal} />
-            ))}
+            )) : (
+              <p className="col-span-full rounded-2xl border border-border bg-card p-8 text-center text-muted-foreground">
+                No matching packages yet. Try another destination or WhatsApp us for a tailored trip.
+              </p>
+            )}
           </div>
         </div>
       </div>

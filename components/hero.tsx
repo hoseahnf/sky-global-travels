@@ -1,12 +1,22 @@
 "use client"
 
 import { useState } from "react"
-import { ArrowRight, CalendarDays, MapPin, Plane, Search, Users } from "lucide-react"
+import { ArrowRight, CalendarDays, MapPin, Search, Users } from "lucide-react"
 
 const searchTabs = ["Holidays", "Umrah Packages", "Flights"] as const
 
-export function Hero() {
+type HeroProps = {
+  onSearch: (destination: string) => void
+}
+
+export function Hero({ onSearch }: HeroProps) {
   const [activeTab, setActiveTab] = useState<(typeof searchTabs)[number]>("Holidays")
+  const [destination, setDestination] = useState("")
+
+  function handleSearch() {
+    onSearch(destination)
+    document.getElementById("deals")?.scrollIntoView({ behavior: "smooth", block: "start" })
+  }
 
   return (
     <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden py-16">
@@ -53,7 +63,7 @@ export function Hero() {
               Where do you want to go?
               <span className="flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-3 text-sm font-normal text-foreground">
                 <MapPin aria-hidden="true" className="size-4 text-primary" />
-                <input aria-label="Destination" placeholder={activeTab === "Umrah Packages" ? "Makkah or Madinah" : "Destination or airport"} className="min-w-0 flex-1 bg-transparent outline-none placeholder:text-muted-foreground" />
+                <input aria-label="Destination" value={destination} onChange={(event) => setDestination(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter" && !event.nativeEvent.isComposing && event.keyCode !== 229) handleSearch() }} placeholder={activeTab === "Umrah Packages" ? "Makkah or Madinah" : "Destination or airport"} className="min-w-0 flex-1 bg-transparent outline-none placeholder:text-muted-foreground" />
               </span>
             </label>
             <label className="flex flex-col gap-1.5 text-xs font-semibold text-muted-foreground">
@@ -70,7 +80,7 @@ export function Hero() {
                 <select aria-label="Travellers" className="w-full bg-transparent outline-none"><option>2 travellers</option><option>1 traveller</option><option>Family</option></select>
               </span>
             </label>
-            <button type="button" className="inline-flex items-center justify-center gap-2 rounded-xl bg-secondary px-5 py-3 text-sm font-bold text-secondary-foreground transition hover:opacity-90 sm:h-[46px]">
+            <button type="button" onClick={handleSearch} className="inline-flex items-center justify-center gap-2 rounded-xl bg-secondary px-5 py-3 text-sm font-bold text-secondary-foreground transition hover:opacity-90 sm:h-[46px]">
               <Search data-icon="inline-start" /> Search
             </button>
           </div>
@@ -82,7 +92,7 @@ export function Hero() {
           rel="noopener noreferrer"
           className="mt-6 inline-flex items-center gap-2 rounded-lg bg-secondary/90 px-7 py-3 text-base font-semibold text-secondary-foreground shadow-lg transition hover:scale-[1.02] hover:opacity-90"
         >
-          Book with Ryan Smith
+          Book with Hosea Hanif
           <ArrowRight data-icon="inline-end" />
         </a>
       </div>
