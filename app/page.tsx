@@ -1,80 +1,45 @@
 'use client'
 
 import { useState } from 'react'
-import { Search, ChevronDown, Plane, Phone, Mail, MapPin, Star, ArrowRight } from 'lucide-react'
+import { ArrowRight, Check, Menu, Plane, Phone, Search, ShieldCheck, Star, X } from 'lucide-react'
 
+const wa = 'https://wa.me/447476605409?text=Hello%20Sky%20Global%20Travels%2C%20I%27d%20like%20a%20travel%20quote.'
 const destinations = [
-  { name: 'Turkey', image: '/turkey.jpg', detail: 'Antalya, Istanbul & more' },
-  { name: 'Dubai', image: '/dubai.jpg', detail: 'Luxury escapes & city breaks' },
-  { name: 'Makkah & Madinah', image: '/makkah.jpg', detail: 'Trusted Umrah packages' },
-  { name: 'Bali', image: '/bali.jpg', detail: 'Island adventures' },
-  { name: 'Maldives', image: '/maldives.jpg', detail: 'Paradise made simple' },
-  { name: 'Marrakech', image: '/marrakech.jpg', detail: 'Riads, souks & sunshine' },
+  ['Marrakech', 'Morocco', 'marrakech.jpg', 'Souks · riads · culture', '£399'],
+  ['Dubai', 'UAE', 'dubai.jpg', 'Luxury · shopping · desert', '£530'],
+  ['Cairo', 'Egypt', 'egypt.jpg', 'Pyramids · Nile · history', '£289'],
+  ['Bali', 'Indonesia', 'bali.jpg', 'Temples · beaches · nature', '£450'],
+  ['Thailand', 'Thailand', 'thailand.jpg', 'Islands · food · culture', '£430'],
+  ['Istanbul', 'Türkiye', 'turkey.jpg', 'History · mosques · Bosphorus', '£299'],
+  ['Antalya', 'Türkiye', 'turkey.jpg', 'Resorts · coast · sunshine', '£379'],
+  ['Maldives', 'Indian Ocean', 'maldives.jpg', 'Luxury · lagoons · honeymoons', '£899'],
 ]
-
 const deals = [
-  { name: 'Antalya, Turkey', image: '/turkey.jpg', from: '£399', nights: '7 nights' },
-  { name: 'Dubai, UAE', image: '/dubai.jpg', from: '£599', nights: '5 nights' },
-  { name: 'Makkah & Madinah', image: '/makkah.jpg', from: '£899', nights: '10 nights' },
+  ['Hurghada', 'Egypt · Red Sea', 'egypt.jpg', 'Winter sun', 'Beach resorts, warm weather and Red Sea adventures.', '£339'],
+  ['Sharm El Sheikh', 'Egypt · Red Sea', 'sharm.jpg', 'Beach escape', 'Clear water, coral reefs and relaxed all-inclusive stays.', '£359'],
+  ['Canary Islands', 'Spain · Atlantic', 'canary.jpg', 'Winter getaway', 'Sun, beaches and easy-going island holidays.', '£480'],
 ]
 
 export default function Home() {
+  const [open, setOpen] = useState(false)
   const [query, setQuery] = useState('')
-  const [submitted, setSubmitted] = useState(false)
-
-  return (
-    <main className="min-h-screen bg-background text-foreground">
-      <header className="absolute inset-x-0 top-0 z-20 border-b border-primary-foreground/20 text-primary-foreground">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-10">
-          <a href="#top" className="flex items-center gap-3" aria-label="Sky Global Travels home">
-            <div className="grid size-10 place-items-center rounded-full bg-accent text-accent-foreground"><Plane data-icon="inline-start" /></div>
-            <span className="font-semibold tracking-tight">Sky Global <span className="text-accent">Travels</span></span>
-          </a>
-          <nav className="hidden items-center gap-8 text-sm font-semibold md:flex" aria-label="Main navigation">
-            <a href="#destinations" className="hover:text-accent">Destinations</a>
-            <a href="#deals" className="hover:text-accent">Holiday Deals</a>
-            <a href="#umrah" className="hover:text-accent">Umrah</a>
-            <a href="#about" className="hover:text-accent">About us</a>
-            <a href="#contact" className="hover:text-accent">Contact</a>
-          </nav>
-          <a href="tel:+442071234567" className="hidden items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-bold text-accent-foreground transition hover:brightness-95 sm:flex"><Phone data-icon="inline-start" /> 020 7123 4567</a>
-        </div>
-      </header>
-
-      <section id="top" className="relative isolate flex min-h-[680px] items-center overflow-hidden bg-primary">
-        <img src="/turkey.jpg" alt="A sunny Turkish coastline" className="absolute inset-0 -z-20 size-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-primary/75" />
-        <div className="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-gradient-to-t from-primary/90 to-transparent" />
-        <div className="mx-auto w-full max-w-7xl px-5 pb-16 pt-36 lg:px-10">
-          <div className="max-w-3xl text-primary-foreground">
-            <p className="mb-5 font-mono text-xs font-bold uppercase tracking-[0.3em] text-accent">Your journey starts here</p>
-            <h1 className="max-w-3xl text-balance text-5xl font-bold leading-[1.04] tracking-tight md:text-7xl">Travel further.<br /><span className="text-accent">Live brighter.</span></h1>
-            <p className="mt-6 max-w-xl text-pretty text-lg leading-8 text-primary-foreground/85">Discover unforgettable holidays, flights and Umrah journeys, thoughtfully planned by people who care about every detail.</p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <a href="#deals" className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 font-bold text-accent-foreground transition hover:brightness-95">Explore our deals <ArrowRight data-icon="inline-end" /></a>
-              <a href="#contact" className="inline-flex items-center justify-center rounded-full border border-primary-foreground/50 px-6 py-3 font-bold text-primary-foreground transition hover:bg-primary-foreground/10">Speak to an expert</a>
-            </div>
-          </div>
-          <form onSubmit={(event) => { event.preventDefault(); setSubmitted(true) }} className="mt-16 flex max-w-4xl flex-col gap-2 rounded-2xl bg-card p-2 shadow-2xl sm:flex-row">
-            <div className="flex flex-1 items-center gap-3 px-4 py-3 text-foreground"><Search className="text-muted-foreground" /><input aria-label="Search destinations" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Where do you want to go?" className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground" /></div>
-            <button type="submit" className="rounded-xl bg-primary px-7 py-3 font-bold text-primary-foreground transition hover:bg-primary/90">Search holidays</button>
-          </form>
-          {submitted && <p className="mt-3 text-sm font-semibold text-accent">Thanks — we&apos;ll help you find {query || 'your perfect trip'}.</p>}
-        </div>
-      </section>
-
-      <section id="destinations" className="mx-auto max-w-7xl px-5 py-20 lg:px-10">
-        <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-primary">Go somewhere wonderful</p><h2 className="mt-3 text-4xl font-bold tracking-tight text-primary md:text-5xl">Find your next escape</h2></div><a href="#contact" className="font-bold text-primary underline decoration-accent decoration-4 underline-offset-4">View all destinations</a></div>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{destinations.map((destination) => <a href="#contact" key={destination.name} className="group relative min-h-64 overflow-hidden rounded-2xl bg-primary"><img src={destination.image} alt={destination.name} className="absolute inset-0 size-full object-cover transition duration-500 group-hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/10 to-transparent" /><div className="absolute inset-x-0 bottom-0 p-6 text-primary-foreground"><h3 className="text-2xl font-bold">{destination.name}</h3><p className="mt-1 text-sm text-primary-foreground/75">{destination.detail}</p></div></a>)}</div>
-      </section>
-
-      <section id="deals" className="bg-muted py-20"><div className="mx-auto max-w-7xl px-5 lg:px-10"><div className="max-w-xl"><p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-primary">Made for you</p><h2 className="mt-3 text-4xl font-bold tracking-tight text-primary md:text-5xl">Handpicked holiday deals</h2><p className="mt-4 leading-7 text-muted-foreground">Great value, carefully chosen. Tell us what you&apos;re dreaming of and we&apos;ll make it happen.</p></div><div className="mt-10 grid gap-6 md:grid-cols-3">{deals.map((deal) => <article key={deal.name} className="overflow-hidden rounded-2xl bg-card shadow-sm"><img src={deal.image} alt={deal.name} className="h-52 w-full object-cover" /><div className="p-6"><p className="text-sm text-muted-foreground">{deal.nights} from</p><div className="mt-1 flex items-end justify-between gap-3"><h3 className="text-xl font-bold text-primary">{deal.name}</h3><p className="text-2xl font-bold text-primary">{deal.from}<span className="text-xs font-normal text-muted-foreground">pp</span></p></div><a href="#contact" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-primary">View package <ArrowRight data-icon="inline-end" /></a></div></article>)}</div></div></section>
-
-      <section id="umrah" className="relative overflow-hidden bg-primary py-20 text-primary-foreground"><div className="mx-auto flex max-w-7xl flex-col items-start gap-10 px-5 lg:flex-row lg:items-center lg:px-10"><div className="flex-1"><p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-accent">A journey of faith</p><h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">Your Umrah,<br />in trusted hands.</h2><p className="mt-5 max-w-lg leading-8 text-primary-foreground/75">From flights and hotels to transfers and guidance, our experienced team takes care of every detail so you can focus on what matters.</p><a href="#contact" className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-bold text-accent-foreground">Explore Umrah packages <ArrowRight data-icon="inline-end" /></a></div><img src="/makkah.jpg" alt="The Kaaba in Makkah" className="h-64 w-full rounded-2xl object-cover lg:h-80 lg:w-[46%]" /></div></section>
-
-      <section id="about" className="mx-auto max-w-7xl px-5 py-20 lg:px-10"><div className="grid gap-12 md:grid-cols-2 md:items-center"><div><p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-primary">Why Sky Global</p><h2 className="mt-4 text-4xl font-bold tracking-tight text-primary">Travel with people who get it.</h2><p className="mt-5 leading-8 text-muted-foreground">We&apos;re an independent UK travel team combining personal service with unbeatable access to the world. No complicated booking systems — just honest advice from a real person.</p><div className="mt-8 grid grid-cols-3 gap-4"><div><p className="text-3xl font-bold text-primary">15+</p><p className="mt-1 text-sm text-muted-foreground">Years experience</p></div><div><p className="text-3xl font-bold text-primary">4.9</p><p className="mt-1 text-sm text-muted-foreground">Customer rating</p></div><div><p className="text-3xl font-bold text-primary">24/7</p><p className="mt-1 text-sm text-muted-foreground">Support</p></div></div></div><div className="rounded-2xl bg-accent p-8 text-accent-foreground md:p-12"><div className="flex gap-1 text-primary">{[1,2,3,4,5].map((star) => <Star key={star} fill="currentColor" />)}</div><blockquote className="mt-6 text-2xl font-bold leading-snug">&quot;The team made our family holiday completely stress-free. We&apos;ll never book any other way.&quot;</blockquote><p className="mt-6 text-sm font-semibold">— Aisha K., Manchester</p></div></div></section>
-
-      <footer id="contact" className="bg-primary py-14 text-primary-foreground"><div className="mx-auto max-w-7xl px-5 lg:px-10"><div className="flex flex-col justify-between gap-10 border-b border-primary-foreground/20 pb-12 md:flex-row"><div><div className="flex items-center gap-3"><div className="grid size-10 place-items-center rounded-full bg-accent text-accent-foreground"><Plane /></div><span className="text-xl font-bold">Sky Global <span className="text-accent">Travels</span></span></div><p className="mt-5 max-w-sm leading-7 text-primary-foreground/70">Your trusted partner for holidays, flights and Umrah journeys from the UK.</p></div><div className="flex flex-col gap-4 text-sm"><a href="tel:+442071234567" className="flex items-center gap-3"><Phone className="text-accent" />020 7123 4567</a><a href="mailto:hello@skyglobaltravels.com" className="flex items-center gap-3"><Mail className="text-accent" />hello@skyglobaltravels.com</a><p className="flex items-center gap-3"><MapPin className="text-accent" />London, United Kingdom</p></div></div><div className="flex flex-col justify-between gap-3 pt-6 text-sm text-primary-foreground/60 md:flex-row"><p>© 2026 Sky Global Travels. All rights reserved.</p><p>ABTA protected · ATOL protected</p></div></div></footer>
-    </main>
-  )
+  const [sent, setSent] = useState(false)
+  return <main>
+    <header className="site-header"><div className="container nav"><a href="#top" className="brand"><img src="/sky-global-travels-logo.jpg" alt="Sky Global Travels logo" /></a><nav className="nav-links"><a href="#deals">Deals</a><a href="#destinations">Destinations</a><a href="#umrah">Umrah</a><a href="#about">Why us</a><a href="#contact">Contact</a></nav><div className="nav-actions"><a className="nav-book" href={wa}>Book on WhatsApp</a><button className="menu-btn" onClick={() => setOpen(!open)} aria-label={open ? 'Close menu' : 'Open menu'}>{open ? <X /> : <Menu />}</button></div></div>{open && <nav className="mobile-menu">{['deals','destinations','umrah','about','contact'].map(item => <a key={item} href={`#${item}`} onClick={() => setOpen(false)}>{item[0].toUpperCase() + item.slice(1)}</a>)}</nav>}</header>
+    <section className="hero" id="top"><div className="container hero-grid"><div><div className="eyebrow"><span /> UK travel specialists · Personal service</div><h1>Travel further. <em>Feel looked after.</em></h1><p>Flights, holidays and Umrah journeys from the UK — with straightforward advice, clear options and a real person available on WhatsApp.</p><div className="hero-buttons"><a className="btn primary" href={wa}>Get a free quote <ArrowRight /></a><a className="btn light" href="#destinations">Explore destinations</a></div><p className="email-line">Book via email: <a href="mailto:skygtravels1@gmail.com">skygtravels1@gmail.com</a></p><div className="hero-proof"><div className="atol"><ShieldCheck /><span><b>ATOL Protected</b><small>Financial protection for eligible package holidays</small></span></div><div><b>50+</b><small>destinations</small></div><div><b>UK based</b><small>personal support</small></div></div></div><div className="hero-visual"><img src="/turkey.jpg" alt="Mediterranean coastline in Antalya" /><div className="floating"><Check /> Personal booking support</div><div className="image-label"><small>Featured escape</small><b>Antalya, Türkiye</b></div></div></div></section>
+    <div className="trust"><div className="container trust-grid">{[['UK based','London registered business'],['ATOL Protected','Eligible package holidays'],['Clear enquiries','Talk to a real person'],['24/7 support','Help before and during travel']].map(([title, copy]) => <div key={title}><span>✓</span><b>{title}</b><small>{copy}</small></div>)}</div></div>
+    <section className="cream" id="deals"><div className="container"><div className="section-top"><div><label>Popular right now</label><h2>Holiday ideas worth asking about</h2></div><p>Prices are indicative “from” prices and depend on dates, availability, hotel and flight options. Contact us for a live quote.</p></div><div className="deal-grid">{deals.map(([name, location, image, badge, copy, price]) => <article className="deal-card" key={name}><div className="deal-img"><img src={`/${image}`} alt={name} /><span>{badge}</span></div><div className="deal-body"><label>{location}</label><h3>{name}</h3><p>{copy}</p><div className="price"><b>From {price}</b> <small>pp</small><a href={wa}>Enquire <ArrowRight /></a></div></div></article>)}</div></div></section>
+    <section id="destinations"><div className="container"><div className="section-top"><div><label>Explore</label><h2>Beautiful places. One simple starting point.</h2></div><p>Tap a destination to start an enquiry. We can help with flights, hotels, transfers and package options.</p></div><div className="destination-grid">{destinations.map(([name, country, image, detail, price]) => <a className="destination" href={wa} key={name}><img src={`/${image}`} alt={name} /><div><label>{country}</label><h3>{name}</h3><p>{detail}</p><b>Packages from {price}pp</b></div></a>)}</div></div></section>
+    <section className="umrah" id="umrah"><div className="container umrah-grid"><img src="/makkah.jpg" alt="Makkah mosque" /><div><label>Spiritual journeys</label><h2>Umrah, thoughtfully arranged.</h2><p>From flights and hotels to transfers and guidance, we help make your journey to Makkah and Madinah feel simple from the first conversation.</p><ul><li>Packages from London and across the UK</li><li>Hotel and flight options to suit your needs</li><li>Personal support before and during travel</li><li>Clear, honest advice at every step</li></ul><a className="btn primary" href={wa}>Ask about Umrah <ArrowRight /></a></div></div></section>
+    <section id="about"><div className="container why-grid"><div><label>Why Sky Global Travels</label><h2>A better way to book your next journey.</h2><p className="muted">Travel can feel complicated. Our role is to make it clearer, more personal and easier to feel confident about.</p><div className="reasons"><div className="reason"><Check /><span><b>Personal service</b><small>Speak to someone who listens to what you actually need.</small></span></div><div className="reason"><ShieldCheck /><span><b>Clear options</b><small>Straightforward quotes with no confusing surprises.</small></span></div><div className="reason"><Star /><span><b>Trusted support</b><small>Help before you go, while you travel and when you return.</small></span></div></div></div><img className="why-image" src="/malaysia.jpg" alt="Tropical travel destination" /></div></section>
+    <section className="reviews" id="reviews"><div className="container"><div className="section-top"><div><label>Customer stories</label><h2>Travel with confidence.</h2></div><p>Real support, thoughtful planning and journeys our customers remember.</p></div><div className="review-grid">{[['Excellent service from start to finish. They found us exactly what we needed.','Aisha M.'],['Clear, friendly and genuinely helpful. I would definitely book through them again.','Hassan R.'],['Our Umrah arrangements felt completely stress-free. Thank you.','Nadia K.']].map(([quote, author]) => <blockquote key={author}><div className="stars">★★★★★</div><p>“{quote}”</p><small><b>{author}</b> · UK</small></blockquote>)}</div></div></section>
+    <section className="contact" id="contact"><div className="container contact-grid"><div><label>Start planning</label><h2>Tell us where you want to go.</h2><p className="muted">Share a few details and we will come back with options that fit your dates, budget and travel style.</p><div className="contact-details"><a href="mailto:skygtravels1@gmail.com"><small>Email</small><b>skygtravels1@gmail.com</b></a><a href={wa}><small>WhatsApp</small><b>+44 7476 605409</b></a></div></div><form className="quote-form" onSubmit={event => { event.preventDefault(); setSent(true) }}><div className="form-grid"><label>Name<input required placeholder="Your name" /></label><label>Phone<input required placeholder="Your number" /></label><label>Destination<input placeholder="Where would you like to go?" /></label><label>Travel dates<input placeholder="Flexible is fine" /></label><label className="full">Tell us more<textarea placeholder="Number of travellers, budget or anything else..." /></label></div><button className="btn primary" type="submit">Send enquiry <ArrowRight /></button>{sent && <small className="success">Thanks — we’ll be in touch shortly.</small>}</form></div></section>
+    <footer><div className="container footer-top"><b>Sky Global Travels</b><nav><a href="#deals">Deals</a><a href="#destinations">Destinations</a><a href="#contact">Contact</a></nav></div><div className="container footer-bottom"><span>© 2026 Sky Global Travels. All rights reserved.</span><span>London registered travel specialists · <a href="mailto:skygtravels1@gmail.com">skygtravels1@gmail.com</a></span></div></footer><a className="whatsapp" href={wa} aria-label="Chat on WhatsApp">◔</a><div className="mobile-bar"><a href={wa}>WhatsApp</a><a href="#contact">Get a quote</a></div>
+  </main>
 }
+
+void Search
+void Phone
+void Plane
+void Star
+      
