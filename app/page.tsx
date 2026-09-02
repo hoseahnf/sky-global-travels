@@ -38,8 +38,3 @@ export default function Home() {
   </main>
 }
 
-void Search
-void Phone
-void Plane
-void Star
-      
