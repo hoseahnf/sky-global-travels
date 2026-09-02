@@ -1,12 +1,18 @@
 import type { Metadata, Viewport } from 'next'
-import { Poppins } from 'next/font/google'
+import { DM_Sans, Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const poppins = Poppins({
+const dmSans = DM_Sans({
   subsets: ['latin'],
-  weight: ['400', '600', '700'],
-  variable: '--font-poppins',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-dm-sans',
+})
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  variable: '--font-playfair',
 })
 
 export const metadata: Metadata = {
@@ -38,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={poppins.variable}>
+    <html lang="en" className={`${dmSans.variable} ${playfair.variable} bg-background`}>
       <body className="font-sans antialiased">
         {children}
         <Analytics />
